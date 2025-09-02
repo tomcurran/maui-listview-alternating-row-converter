@@ -9,6 +9,8 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <x:String x:Key="fallbackImageUrl">https://upload.wikimedia.org/wikipedia/commons/2/20/Point_d_interrogation.jpg</x:String>
+            <x:String x:Key="locationUnknown">Location unknown</x:String>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

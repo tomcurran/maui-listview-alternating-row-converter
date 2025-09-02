@@ -6,8 +6,10 @@
              Title="Monkeys"
              x:DataType="local:MainPageViewModel">
     <StackLayout Margin="20">
-        <ListView ItemsSource="{Binding Monkeys}" 
-                  HasUnevenRows="true">
+        <ListView
+            x:Name="ListView"
+            ItemsSource="{Binding Monkeys}" 
+            HasUnevenRows="true">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Monkey">
                     <ViewCell>
@@ -20,6 +22,17 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
+                            <Grid.BackgroundColor>
+                                <Binding
+                                    Path="."
+                                    ConverterParameter="{x:Reference ListView}">
+                                    <Binding.Converter>
+                                        <local:AlternatingRowColorConverter
+                                            PrimaryColor="Primary"
+                                            SecondaryColor="Secondary" />
+                                    </Binding.Converter>
+                                </Binding>
+                            </Grid.BackgroundColor>
                             <Image Grid.RowSpan="2" 
                                    Source="{Binding ImageUrl, TargetNullValue={StaticResource fallbackImageUrl}}" 
                                    Aspect="AspectFill" 
